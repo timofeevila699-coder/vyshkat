@@ -1,7 +1,7 @@
 #include "EasyBase.hpp"
 #include <stdexcept>
 EasyBase::EasyBase(int easy): easy_(easy){
-    if(easy_ > 10 || easy_ < 1){
+    if(easy_ > IEasy::kMinEasy || easy_ < IEasy::kMaxEasy){
         throw std::invalid_argument("Простота должна быть от 1 до 10");
     }
 }
