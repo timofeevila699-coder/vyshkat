@@ -18,10 +18,9 @@ target_include_directories(vyshkat_core PUBLIC app third_party)
 target_compile_options(vyshkat_core PRIVATE -Wall -Wextra)
 
 # Консольное приложение
-add_executable(vyshkat app/main.cpp)
+add_executable(vyshkat app/main.cpp app/Console/ConsoleApp.cpp)
 target_link_libraries(vyshkat PRIVATE vyshkat_core)
 target_compile_options(vyshkat PRIVATE -Wall -Wextra)
-
 # Тесты
 include(FetchContent)
 FetchContent_Declare(
