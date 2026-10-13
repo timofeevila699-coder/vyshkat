@@ -37,6 +37,7 @@ add_executable(vyshkat_tests
     tests/park_test.cpp
     tests/report_test.cpp
     tests/integration_test.cpp
+    tests/di_container_test.cpp
 )
 
 option(ENABLE_COVERAGE "Сборка с покрытием" OFF)
