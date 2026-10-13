@@ -12,6 +12,7 @@ add_library(vyshkat_core
     app/Base/EasyBase/EasyBase.cpp
     app/ServiceCenter/ServiceCenter.cpp
     app/Park/Park.cpp
+    app/Report/Report.cpp
 )
 target_include_directories(vyshkat_core PUBLIC app third_party)
 target_compile_options(vyshkat_core PRIVATE -Wall -Wextra)
