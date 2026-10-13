@@ -32,7 +32,22 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-add_executable(vyshkat_tests tests/smoke_test.cpp)
+add_executable(vyshkat_tests
+    tests/service_center_test.cpp
+    tests/validation_test.cpp
+    tests/park_test.cpp
+    tests/report_test.cpp
+    tests/integration_test.cpp
+)
+
+option(ENABLE_COVERAGE "Сборка с покрытием" OFF)
+if(ENABLE_COVERAGE)
+    target_compile_options(vyshkat_core PRIVATE --coverage -O0)
+    target_link_options(vyshkat_core PUBLIC --coverage)
+    target_compile_options(vyshkat_tests PRIVATE --coverage -O0)
+endif()
+
+target_include_directories(vyshkat_tests PRIVATE tests)
 target_link_libraries(vyshkat_tests PRIVATE vyshkat_core GTest::gtest_main GTest::gmock)
 include(GoogleTest)
 gtest_discover_tests(vyshkat_tests)
